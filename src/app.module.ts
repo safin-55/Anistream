@@ -5,9 +5,10 @@ import { PostgresDatabaseProviderModule } from './providers/database/postgres/pr
 
 import { AuthModule } from './modules/auth/auth.module';
 import { UploaderRequestModule } from './modules/uploader-request/uploader-request.module';
+import { AuditLogModule } from './modules/audit-log/audit-log.module';
 
 @Module({
-  imports: [PostgresDatabaseProviderModule, AuthModule , UploaderRequestModule],
+  imports: [PostgresDatabaseProviderModule, AuthModule , UploaderRequestModule,AuditLogModule],
   controllers: [AppController],
   providers: [AppService],
 })
