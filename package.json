@@ -8,7 +8,8 @@
     "build": "tsc -p tsconfig.json",
     "dev": "node --watch -r ts-node/register src/main.ts",
     "db:migrate": "typeorm-ts-node-commonjs migration:run -d src/database/data-source.ts",
-    "db:status": "typeorm-ts-node-commonjs migration:show -d src/database/data-source.ts"
+    "db:status": "typeorm-ts-node-commonjs migration:show -d src/database/data-source.ts",
+    "seed:admin": "ts-node src/seed-admin.ts"
   },
   "repository": {
     "type": "git",
@@ -43,8 +44,10 @@
     "typeorm": "0.3.31"
   },
   "devDependencies": {
+    "@types/bcrypt": "6.0.0",
     "@types/express": "5.0.6",
     "@types/node": "24.19.2",
+    "@types/passport-jwt": "4.0.1",
     "ts-node": "10.9.2",
     "typescript": "5.9.3"
   }
