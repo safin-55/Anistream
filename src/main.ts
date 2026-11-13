@@ -4,8 +4,13 @@ import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 
+import { HttpErrorFilter, requestLog } from './common/http';
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+    
+  app.use(requestLog);
+  app.useGlobalFilters(new HttpErrorFilter());
 
   app.setGlobalPrefix('api/v1');
   app.useGlobalPipes(new ValidationPipe({
