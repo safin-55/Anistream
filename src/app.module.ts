@@ -4,9 +4,10 @@ import { AppService } from './app.service';
 import { PostgresDatabaseProviderModule } from './providers/database/postgres/provider.module';
 
 import { AuthModule } from './modules/auth/auth.module';
+import { UploaderRequestModule } from './modules/uploader-request/uploader-request.module';
 
 @Module({
-  imports: [PostgresDatabaseProviderModule, AuthModule],
+  imports: [PostgresDatabaseProviderModule, AuthModule , UploaderRequestModule],
   controllers: [AppController],
   providers: [AppService],
 })
