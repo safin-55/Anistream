@@ -1,4 +1,3 @@
-
 import { MigrationInterface, QueryRunner } from 'typeorm';
 
 export class CreateUsers1730000000101 implements MigrationInterface {
@@ -9,10 +8,10 @@ export class CreateUsers1730000000101 implements MigrationInterface {
         username varchar(32) NOT NULL UNIQUE,
         email varchar(254) NOT NULL UNIQUE,
         password_hash varchar(60) NOT NULL,
-        role varchar(10) NOT NULL DEFAULT 'user',
+        role varchar(10) NOT NULL DEFAULT 'user' CHECK (role IN ('user', 'admin')),
         is_verified_uploader boolean NOT NULL DEFAULT false,
         created_at timestamptz NOT NULL DEFAULT now()
-      );
+      )
     `);
   }
 
